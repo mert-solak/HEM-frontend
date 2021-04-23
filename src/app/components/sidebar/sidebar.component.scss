@@ -1,0 +1,51 @@
+@import '_variables';
+
+.container {
+  padding: 20px 4px 20px 4px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-darker-background;
+}
+
+.menu {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.menu-list-item {
+  width: 100%;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-list-item-icon {
+  color: $color-icon;
+}
+
+.menu-list-item-label {
+  margin: 0px;
+  margin-left: 20px;
+  color: $color-text;
+}
+
+.menu-list-item-selected {
+  border-left: 3px solid $color-selected-border;
+}
+
+.menu-list-item-selected .menu-list-item-icon {
+  color: $color-selected-border;
+}
+
+.menu-list-item-selected .menu-list-item-label {
+  color: $color-selected-border;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  font-size: 60px;
+}
