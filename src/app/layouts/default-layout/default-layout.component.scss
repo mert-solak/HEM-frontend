@@ -1,0 +1,12 @@
+@import '_variables';
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.right-container {
+  height: 100%;
+  box-shadow: -2px 0px 2px 0px $color-border;
+}
