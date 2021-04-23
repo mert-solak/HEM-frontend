@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card-container">
+    <div class="card-item">
+      <p class="name">Clinic Name</p>
+    </div>
+    <div class="card-item">
+      <p>%24</p>
+    </div>
+    <div class="card-item">
+      <p>25.000.000</p>
+    </div>
+    <div class="card-item">
+      <p>05/25/2020</p>
+    </div>
+    <div class="card-item">
+      <p class="menu-trigger" [matMenuTriggerFor]="menu">...</p>
+    </div>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+</div>
