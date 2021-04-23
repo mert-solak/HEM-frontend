@@ -10,9 +10,9 @@ import * as moment from 'moment';
 })
 export class ClinicCardComponent implements OnInit {
   @Input() clinic: Clinic;
-  avarageEquipmentUsageRatio: number = 0;
-  totalEquipmentQuantity: number = 0;
-  totalEquipmentPrice: number = 0;
+  avarageEquipmentUsageRatio = 0;
+  totalEquipmentQuantity = 0;
+  totalEquipmentPrice = 0;
   updatedAt: string;
 
   constructor() {}

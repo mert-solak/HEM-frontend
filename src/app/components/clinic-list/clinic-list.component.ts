@@ -15,19 +15,19 @@ export class ClinicListComponent implements OnInit {
     count: 0,
     rows: [],
   };
-  currentPage: number = 0;
+  currentPage = 0;
   pageSize: number = clinicConfig.pageSize;
   sortBy: SortableField;
 
   constructor(private clinicService: ClinicService) {}
 
-  onPageChanged = (event: PageEvent) => {
+  onPageChanged(event: PageEvent) {
     this.currentPage = event.pageIndex;
 
     this.clinicService.getClinics({ offset: this.currentPage * this.pageSize, limit: this.pageSize });
-  };
+  }
 
-  onSortByChange = (event: MatSelectChange) => {
+  onSortByChange(event: MatSelectChange) {
     this.sortBy = event.value;
 
     this.clinicService.getClinics({
@@ -36,7 +36,7 @@ export class ClinicListComponent implements OnInit {
       sortBy: 'name',
       sortOrder: 'ASC',
     });
-  };
+  }
 
   ngOnInit() {
     this.clinicService.getClinics({ offset: this.currentPage, limit: this.pageSize });

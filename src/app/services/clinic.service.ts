@@ -14,11 +14,11 @@ export class ClinicService {
 
   constructor() {}
 
-  getClinics = async (input: ClinicLookupInput) => {
+  async getClinics(input: ClinicLookupInput) {
     const { data } = await axios.get<ClinicLookupResult>(urlConfig.clinic.lookup, {
       params: input,
     });
 
     this.clinicsSubject.next(data);
-  };
+  }
 }
