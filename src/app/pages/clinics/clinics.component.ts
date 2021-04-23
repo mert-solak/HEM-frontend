@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClinicService } from '@services/clinic.service';
+import { ClinicLookupResult } from 'app/types/clinic.type';
 
 @Component({
   selector: 'app-clinics',
