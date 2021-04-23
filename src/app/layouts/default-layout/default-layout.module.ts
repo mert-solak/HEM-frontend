@@ -8,11 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { MatListModule } from '@angular/material/list';
 import { DefaultLayoutRoutingModule } from '@layouts/default-layout/default-layout-routing.module';
-import { EquipmentsModule } from '@pages/equipments/equipments.module';
 
 @NgModule({
   declarations: [DefaultLayoutComponent, HeaderComponent, SidebarComponent],
-  imports: [CommonModule, DefaultLayoutRoutingModule, SharedModule, EquipmentsModule, MatListModule, MatIconModule],
+  imports: [CommonModule, DefaultLayoutRoutingModule, SharedModule, MatListModule, MatIconModule],
   exports: [DefaultLayoutComponent],
 })
 export class DefaultLayoutModule {}
