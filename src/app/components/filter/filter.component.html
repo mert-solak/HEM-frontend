@@ -1,1 +1,5 @@
-<p>filter works!</p>
+<div class="container">
+  <div class="filter" *ngFor="let key of getKeys(sortableFields)" (click)="onClickFilter(key)">
+    <p>{{ sortableFields[key] }}</p>
+  </div>
+</div>

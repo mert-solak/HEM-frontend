@@ -1,0 +1,19 @@
+@import '_variables';
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.filter {
+  padding: 2px 24px;
+  margin-left: 12px;
+  border: 1px solid $color-border;
+  border-radius: $radius-border;
+  cursor: pointer;
+}
+
+.filter > p {
+  margin: 0;
+  font-size: 12px;
+}

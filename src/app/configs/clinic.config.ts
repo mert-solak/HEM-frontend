@@ -1,10 +1,12 @@
-import { Clinic } from '@interfaces/clinic.interface';
+import { Clinic, SortableField, EditableField, ShowableField } from '@interfaces/clinic.interface';
 
-const showableFields: (keyof Clinic)[] = ['name'];
-const editableFields: (keyof Clinic)[] = ['name'];
+const showableFields: ShowableField[] = ['name'];
+const editableFields: EditableField[] = ['name'];
+const sortableFields: SortableField[] = ['name'];
 
 export const clinicConfig = {
   pageSize: 10,
   showableFields,
   editableFields,
+  sortableFields,
 };

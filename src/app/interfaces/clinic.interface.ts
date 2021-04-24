@@ -14,6 +14,10 @@ export type SearchableField = keyof Pick<Clinic, 'name' | 'createdAt' | 'updated
 
 export type SortableField = keyof Pick<Clinic, 'name' | 'createdAt' | 'updatedAt'>;
 
+export type EditableField = keyof Pick<Clinic, 'name'>;
+
+export type ShowableField = keyof Pick<Clinic, 'name'>;
+
 export interface ClinicLookupResult {
   rows: Clinic[];
   count: number;
