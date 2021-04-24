@@ -7,5 +7,6 @@ export const urlConfig = {
     lookup: '/clinic/lookup',
     edit: '/clinic',
     delete: '/clinic',
+    add: '/clinic',
   },
 };

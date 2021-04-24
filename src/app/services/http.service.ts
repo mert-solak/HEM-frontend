@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import {
+  ClinicAddInput,
+  ClinicAddResult,
   ClinicDeleteInput,
   ClinicDeleteResult,
   ClinicEditInput,
@@ -66,5 +68,11 @@ export class HttpService {
     const params = inputToParamsConverter(input as any);
 
     return this._http.request<ClinicDeleteResult>('delete', urlConfig.clinic.delete, { params: params, ...options });
+  };
+
+  readonly addClinic = (input: ClinicAddInput, options: HttpRequestExtra): Observable<ClinicAddResult> => {
+    const params = inputToParamsConverter(input as any);
+
+    return this._http.request<ClinicAddResult>('post', urlConfig.clinic.add, { body: params, ...options });
   };
 }

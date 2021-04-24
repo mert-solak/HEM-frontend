@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PageEvent } from '@angular/material';
+import { MatDialog, PageEvent } from '@angular/material';
 
 import { ClinicService } from '@services/clinic.service';
 import { clinicConfig } from '@configs/clinic.config';
+import { ClinicFormComponent } from '@components/clinic-form/clinic-form.component';
 
 @Component({
   selector: 'app-clinics',
@@ -15,7 +16,7 @@ export class ClinicsComponent implements OnInit {
   pageSize = clinicConfig.pageSize;
   showableFields = clinicConfig.showableFields;
 
-  constructor(private _clinicService: ClinicService) {}
+  constructor(private _clinicService: ClinicService, private _dialog: MatDialog) {}
 
   ngOnInit() {
     this._clinicService.getClinics({
@@ -31,5 +32,9 @@ export class ClinicsComponent implements OnInit {
       limit: this.pageSize,
       offset: this.currentPage * this.pageSize,
     });
+  }
+
+  onClickAddButton() {
+    this._dialog.open(ClinicFormComponent);
   }
 }

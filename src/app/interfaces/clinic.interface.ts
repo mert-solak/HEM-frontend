@@ -40,3 +40,8 @@ export interface ClinicDeleteInput {
   id: number;
 }
 export type ClinicDeleteResult = undefined;
+
+export interface ClinicAddInput {
+  id: number;
+}
+export type ClinicAddResult = Clinic;

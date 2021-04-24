@@ -13,5 +13,6 @@
 
 .content {
   padding: 24px;
-  height: calc(100% - #{$height-header});
+  max-height: calc(100vh - #{$height-header});
+  overflow: auto;
 }
