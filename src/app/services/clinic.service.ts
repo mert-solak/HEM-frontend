@@ -1,24 +1,34 @@
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { Injectable } from '@angular/core';
+import { isDefined } from '@angular/compiler/src/util';
 
-import { urlConfig } from '@configs/url.config';
-import { ClinicLookupResult, ClinicLookupInput } from 'app/types/clinic.type';
-import { axios } from '@utils/axios.util';
-
-import { from, Subject } from 'rxjs';
+import { ClinicLookupResult, ClinicLookupInput } from '@interfaces/clinic.interface';
+import { HttpService } from '@services/http.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClinicService {
-  clinicsSubject = new Subject<ClinicLookupResult>();
+  private _clinics: BehaviorSubject<ClinicLookupResult> = new BehaviorSubject({ count: 0, rows: [] });
+  public readonly clinics: Observable<ClinicLookupResult> = this._clinics.asObservable();
 
-  constructor() {}
+  constructor(private _http: HttpService) {}
 
-  async getClinics(input: ClinicLookupInput) {
-    const { data } = await axios.get<ClinicLookupResult>(urlConfig.clinic.lookup, {
-      params: input,
-    });
+  readonly getClinics = (input: ClinicLookupInput, handleError?: (error: any) => void) => {
+    const obs = this._http.getClinics(input, { blockGlobalErrorHandler: !!handleError });
 
-    this.clinicsSubject.next(data);
-  }
+    obs.subscribe(
+      (data) => {
+        this._clinics.next(data);
+      },
+      (error) => {
+        if (isDefined(handleError)) {
+          handleError(error);
+        }
+      },
+    );
+
+    return obs;
+  };
 }

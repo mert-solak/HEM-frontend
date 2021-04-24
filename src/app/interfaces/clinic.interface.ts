@@ -1,4 +1,4 @@
-import { Equipment } from 'app/types/equipment.type';
+import { Equipment } from 'app/interfaces/equipment.interface';
 
 export interface Clinic {
   id: number;

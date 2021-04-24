@@ -1,0 +1,9 @@
+export enum ServerErrorTypesEnum {
+  UNHANDLED_ERROR,
+
+  VALIDATION_ERROR,
+
+  ALREADY_EXISTS,
+  RELATION_NOT_EXISTS,
+  DATA_NOT_EXISTS,
+}

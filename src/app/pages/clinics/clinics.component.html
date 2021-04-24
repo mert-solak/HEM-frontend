@@ -1,1 +1,10 @@
-<app-clinic-list></app-clinic-list>
+<div>
+  <app-filter></app-filter>
+  <app-list [data]="(_clinicService.clinics | async).rows"></app-list>
+  <mat-paginator
+    [length]="(_clinicService.clinics | async).rows.length"
+    [pageSize]="pageSize"
+    (page)="onChangePage($event)"
+  >
+  </mat-paginator>
+</div>

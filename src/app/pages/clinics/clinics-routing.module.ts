@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ClinicsComponent } from '@pages/clinics/clinics.component';
 import { ClinicComponent } from '@pages/clinics/clinic/clinic.component';
+import { ClinicsComponent } from '@pages/clinics/clinics.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,7 @@ const routes: Routes = [
       { path: '', component: ClinicComponent },
       {
         path: 'equipments',
-        loadChildren: () =>
-          import(`@pages/clinics/clinic/equipments/equipments.module`).then((m) => m.EquipmentsModule),
+        loadChildren: () => import(`@pages/equipments/equipments.module`).then((m) => m.EquipmentsModule),
       },
     ],
   },

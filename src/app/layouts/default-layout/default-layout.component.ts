@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { isDefined } from '@angular/compiler/src/util';
+
+import { HttpService } from '@services/http.service';
+import { snackbarConfig } from '@configs/snackbar.config';
 
 @Component({
   selector: 'app-default-layout',
@@ -6,7 +11,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default-layout.component.scss'],
 })
 export class DefaultLayoutComponent implements OnInit {
-  constructor() {}
+  constructor(private _snackBar: MatSnackBar, private _httpService: HttpService) {}
 
-  ngOnInit() {}
+  openSnackBar(message: string) {
+    this._snackBar.open(message, '', {
+      duration: snackbarConfig.durationMilisecond,
+    });
+  }
+
+  ngOnInit() {
+    this._httpService.httpError.subscribe((data) => {
+      if (isDefined(data)) {
+        this.openSnackBar(data);
+      }
+    });
+  }
 }

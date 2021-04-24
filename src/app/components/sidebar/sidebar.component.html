@@ -1,9 +1,13 @@
 <div class="container">
   <mat-icon class="logo">polymer</mat-icon>
   <mat-list class="menu">
-    <mat-list-item class="menu-list-item menu-list-item-selected">
+    <mat-list-item [routerLink]="['/clinics']" [ngClass]="configureSelectedMenuItem('clinics')">
       <mat-icon class="menu-list-item-icon">health_and_safety</mat-icon>
       <p class="menu-list-item-label">Klinikler</p>
+    </mat-list-item>
+    <mat-list-item [routerLink]="['/equipments']" [ngClass]="configureSelectedMenuItem('equipments')">
+      <mat-icon class="menu-list-item-icon">health_and_safety</mat-icon>
+      <p class="menu-list-item-label">Ekipmanlar</p>
     </mat-list-item>
   </mat-list>
 </div>

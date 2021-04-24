@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { PageEvent } from '@angular/material';
+
 import { ClinicService } from '@services/clinic.service';
-import { ClinicLookupResult } from 'app/types/clinic.type';
+import { clinicConfig } from '@configs/clinic.config';
 
 @Component({
   selector: 'app-clinics',
@@ -8,7 +11,28 @@ import { ClinicLookupResult } from 'app/types/clinic.type';
   styleUrls: ['./clinics.component.scss'],
 })
 export class ClinicsComponent implements OnInit {
-  constructor() {}
+  currentPage = 0;
+  pageSize = clinicConfig.pageSize;
 
-  ngOnInit() {}
+  constructor(private _clinicService: ClinicService) {}
+
+  ngOnInit() {
+    this._clinicService.getClinics({
+      limit: this.pageSize,
+      offset: this.currentPage * this.pageSize,
+    });
+
+    this._clinicService.clinics.subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  onChangePage(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+
+    this._clinicService.getClinics({
+      limit: this.pageSize,
+      offset: this.currentPage * this.pageSize,
+    });
+  }
 }

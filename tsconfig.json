@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      "@interfaces/*": ["app/interfaces/*"],
+      "@interceptors/*": ["app/interceptors/*"],
       "@services/*": ["app/services/*"],
       "@helpers/*": ["app/helpers/*"],
       "@utils/*": ["app/utils/*"],
@@ -11,7 +13,9 @@
       "@pages/*": ["app/pages/*"],
       "@layouts/*": ["app/layouts/*"],
       "@shared/*": ["app/shared/*"],
-      "@core/*": ["app/core/*"]
+      "@core/*": ["app/core/*"],
+      "@enums/*": ["app/enums/*"],
+      "@locals/*": ["app/locals/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
