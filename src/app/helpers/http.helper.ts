@@ -1,5 +1,5 @@
 export const inputToParamsConverter = (input: Record<string, string | number | string[]>): Record<string, string> => {
-  let fields: Record<string, string> = {};
+  const fields: Record<string, string> = {};
 
   Object.keys(input).forEach((key) => {
     switch (typeof input[key]) {

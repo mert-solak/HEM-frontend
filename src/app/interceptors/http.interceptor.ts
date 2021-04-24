@@ -48,7 +48,7 @@ export class CustomInterceptor implements HttpInterceptor {
         (err: HttpErrorResponse) => {
           this.removeRequest(cloneReq);
           if (!cloneReq.blockGlobalErrorHandler) {
-            this._httpService.setHttpError(err.error.errorCode);
+            this._httpService.setHttpErrorMessage(err.error.errorCode);
           }
 
           observer.error(err);

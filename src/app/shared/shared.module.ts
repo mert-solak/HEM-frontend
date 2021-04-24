@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,6 +20,7 @@ import { ListComponent } from '@components/list/list.component';
   declarations: [ListComponent, CardComponent, FilterComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
@@ -26,20 +29,25 @@ import { ListComponent } from '@components/list/list.component';
     MatMenuModule,
     MatPaginatorModule,
     MatSelectModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
     CardComponent,
+    CommonModule,
     FilterComponent,
+    FormsModule,
     ListComponent,
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
+    MatListModule,
     MatMenuModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatIconModule,
-    MatListModule,
-    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
 })
 export class SharedModule {}

@@ -18,7 +18,6 @@ export interface ClinicLookupResult {
   rows: Clinic[];
   count: number;
 }
-
 export interface ClinicLookupInput {
   limit?: number;
   offset?: number;
@@ -26,3 +25,18 @@ export interface ClinicLookupInput {
   sortOrder?: SortOrder;
   search?: SearchableField[];
 }
+
+export interface ClinicGetInput {
+  id: number;
+}
+export type ClinicGetResult = Clinic;
+
+export interface ClinicEditInput extends Partial<Clinic> {
+  id: number;
+}
+export type ClinicEditResult = Clinic;
+
+export interface ClinicDeleteInput {
+  id: number;
+}
+export type ClinicDeleteResult = undefined;

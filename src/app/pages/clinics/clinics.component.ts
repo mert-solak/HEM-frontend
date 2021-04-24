@@ -13,6 +13,7 @@ import { clinicConfig } from '@configs/clinic.config';
 export class ClinicsComponent implements OnInit {
   currentPage = 0;
   pageSize = clinicConfig.pageSize;
+  showableFields = clinicConfig.showableFields;
 
   constructor(private _clinicService: ClinicService) {}
 
@@ -20,10 +21,6 @@ export class ClinicsComponent implements OnInit {
     this._clinicService.getClinics({
       limit: this.pageSize,
       offset: this.currentPage * this.pageSize,
-    });
-
-    this._clinicService.clinics.subscribe((data) => {
-      console.log(data);
     });
   }
 

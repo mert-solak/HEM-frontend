@@ -20,7 +20,13 @@ export class DefaultLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._httpService.httpError.subscribe((data) => {
+    this._httpService.httpErrorMessage.subscribe((data) => {
+      if (isDefined(data)) {
+        this.openSnackBar(data);
+      }
+    });
+
+    this._httpService.httpSuccessMessage.subscribe((data) => {
       if (isDefined(data)) {
         this.openSnackBar(data);
       }

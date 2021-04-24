@@ -1,6 +1,6 @@
 <div>
   <app-filter></app-filter>
-  <app-list [data]="(_clinicService.clinics | async).rows"></app-list>
+  <app-list [data]="(_clinicService.clinics | async).rows" [showableFields]="showableFields"></app-list>
   <mat-paginator
     [length]="(_clinicService.clinics | async).rows.length"
     [pageSize]="pageSize"

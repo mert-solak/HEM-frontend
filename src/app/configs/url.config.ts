@@ -3,6 +3,9 @@ export const urlConfig = {
   basePORT: '3000',
 
   clinic: {
-    lookup: '/clinic',
+    get: '/clinic',
+    lookup: '/clinic/lookup',
+    edit: '/clinic',
+    delete: '/clinic',
   },
 };

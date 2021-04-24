@@ -1,1 +1,3 @@
-<p>card works!</p>
+<div [routerLink]="[item.id]" class="container">
+  <p *ngFor="let key of showableFields">{{ item[key] }}</p>
+</div>

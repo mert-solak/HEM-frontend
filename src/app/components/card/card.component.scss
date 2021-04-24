@@ -1,0 +1,16 @@
+@import '_variables';
+
+.container {
+  padding: 12px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-darker-background;
+  border-radius: $radius-border;
+  cursor: pointer;
+}
+
+.container:hover {
+  border: 1px solid $color-border;
+}
