@@ -20,6 +20,18 @@ import { ServerErrorTypesEnum } from '@enums/error.enum';
 import { errorMessages } from '@locals/error.local';
 import { inputToParamsConverter } from '@helpers/http.helper';
 import { urlConfig } from '@configs/url.config';
+import {
+  EquipmentLookupInput,
+  EquipmentAddInput,
+  EquipmentAddResult,
+  EquipmentDeleteInput,
+  EquipmentDeleteResult,
+  EquipmentEditInput,
+  EquipmentEditResult,
+  EquipmentGetInput,
+  EquipmentGetResult,
+  EquipmentLookupResult,
+} from '@interfaces/equipment.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -71,8 +83,41 @@ export class HttpService {
   };
 
   readonly addClinic = (input: ClinicAddInput, options: HttpRequestExtra): Observable<ClinicAddResult> => {
+    return this._http.request<ClinicAddResult>('post', urlConfig.clinic.add, { body: input, ...options });
+  };
+
+  readonly getEquipments = (
+    input: EquipmentLookupInput,
+    options: HttpRequestExtra,
+  ): Observable<EquipmentLookupResult> => {
     const params = inputToParamsConverter(input as any);
 
-    return this._http.request<ClinicAddResult>('post', urlConfig.clinic.add, { body: params, ...options });
+    return this._http.request<EquipmentLookupResult>('get', urlConfig.equipment.lookup, { params, ...options });
+  };
+
+  readonly getEquipment = (input: EquipmentGetInput, options: HttpRequestExtra): Observable<EquipmentGetResult> => {
+    const params = inputToParamsConverter(input as any);
+
+    return this._http.request<EquipmentGetResult>('get', urlConfig.equipment.get, { params, ...options });
+  };
+
+  readonly editEquipment = (input: EquipmentEditInput, options: HttpRequestExtra): Observable<EquipmentEditResult> => {
+    return this._http.request<EquipmentEditResult>('patch', urlConfig.equipment.edit, { body: input, ...options });
+  };
+
+  readonly deleteEquipment = (
+    input: EquipmentDeleteInput,
+    options: HttpRequestExtra,
+  ): Observable<EquipmentDeleteResult> => {
+    const params = inputToParamsConverter(input as any);
+
+    return this._http.request<EquipmentDeleteResult>('delete', urlConfig.equipment.delete, {
+      params: params,
+      ...options,
+    });
+  };
+
+  readonly addEquipment = (input: EquipmentAddInput, options: HttpRequestExtra): Observable<EquipmentAddResult> => {
+    return this._http.request<EquipmentAddResult>('post', urlConfig.equipment.add, { body: input, ...options });
   };
 }

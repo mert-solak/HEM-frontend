@@ -12,7 +12,7 @@ export type SortOrder = 'ASC' | 'DESC';
 
 export type SearchableField = keyof Pick<Clinic, 'name'>;
 
-export type SortableField = keyof Pick<Clinic, 'name' | 'createdAt' | 'updatedAt'>;
+export type SortableField = keyof Pick<Clinic, 'name' | 'createdAt'>;
 
 export type EditableField = keyof Pick<Clinic, 'name'>;
 

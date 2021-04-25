@@ -9,4 +9,12 @@ export const urlConfig = {
     delete: '/clinic',
     add: '/clinic',
   },
+
+  equipment: {
+    get: '/equipment',
+    lookup: '/equipment/lookup',
+    edit: '/equipment',
+    delete: '/equipment',
+    add: '/equipment',
+  },
 };

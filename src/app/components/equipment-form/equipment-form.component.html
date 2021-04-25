@@ -1,0 +1,70 @@
+<div class="container">
+  <form class="form" [formGroup]="equipmentForm" (ngSubmit)="onSubmitEquipmentForm()">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>İsim</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="equipmentForm.get('name').invalid">{{
+        getErrorFieldName(equipmentForm.get('name'))
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Fiyat</mat-label>
+      <input matInput formControlName="price" />
+      <mat-error *ngIf="equipmentForm.get('price').invalid">{{
+        getErrorFieldName(equipmentForm.get('price'))
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Miktar</mat-label>
+      <input matInput formControlName="quantity" />
+      <mat-error *ngIf="equipmentForm.get('quantity').invalid">{{
+        getErrorFieldName(equipmentForm.get('quantity'))
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Temin Tarihi</mat-label>
+      <input
+        matInput
+        (dateChange)="onChangeReceiptDate($event.value)"
+        [matDatepicker]="receiptDate"
+        [formControl]="receiptDate"
+        (dateInput)="test($event)"
+      />
+      <mat-datepicker-toggle matSuffix [for]="receiptDate"></mat-datepicker-toggle>
+      <mat-datepicker #receiptDate></mat-datepicker>
+      <mat-error *ngIf="equipmentForm.get('receiptDate').invalid">{{
+        getErrorFieldName(equipmentForm.get('receiptDate'))
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Kullanım Oranı</mat-label>
+      <input matInput formControlName="usageRatio" />
+      <mat-error *ngIf="equipmentForm.get('usageRatio').invalid">{{
+        getErrorFieldName(equipmentForm.get('usageRatio'))
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Klinik</mat-label>
+      <input matInput [matAutocomplete]="auto" formControlName="clinic" />
+      <mat-error *ngIf="equipmentForm.get('clinic').invalid">{{
+        getErrorFieldName(equipmentForm.get('clinic'))
+      }}</mat-error>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayClinic">
+        <mat-option *ngFor="let clinic of (_clinicService.clinics | async)?.rows" [value]="clinic">
+          {{ clinic.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <div class="form-buttons">
+      <button *ngIf="!id" class="form-button" mat-flat-button color="primary" type="submit">Ekle</button>
+      <button *ngIf="!!id" class="form-button" mat-stroked-button color="primary" type="submit">Düzenle</button>
+      <button *ngIf="!!id" class="form-button" mat-flat-button color="warn" (click)="onClickDeleteButton()">Sil</button>
+    </div>
+  </form>
+</div>

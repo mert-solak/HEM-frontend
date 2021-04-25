@@ -1,4 +1,4 @@
-import { Clinic, SortableField, EditableField, ShowableField } from '@interfaces/clinic.interface';
+import { SortableField, EditableField, ShowableField } from '@interfaces/clinic.interface';
 
 const showableFields: ShowableField[] = ['name'];
 const editableFields: EditableField[] = ['name'];

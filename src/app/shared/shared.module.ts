@@ -12,6 +12,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { CardComponent } from '@components/card/card.component';
 import { FilterComponent } from '@components/filter/filter.component';
@@ -33,6 +36,9 @@ import { ListComponent } from '@components/list/list.component';
     MatSelectModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
   ],
   exports: [
     CardComponent,
@@ -51,6 +57,9 @@ import { ListComponent } from '@components/list/list.component';
     MatSelectModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
   ],
 })
 export class SharedModule {}
