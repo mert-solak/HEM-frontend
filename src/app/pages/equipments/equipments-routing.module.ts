@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: EquipmentsComponent,
   },
+  {
+    path: ':equipmentId',
+    component: EquipmentsComponent,
+  },
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ export interface Clinic {
 
 export type SortOrder = 'ASC' | 'DESC';
 
-export type SearchableField = keyof Pick<Clinic, 'name' | 'createdAt' | 'updatedAt'>;
+export type SearchableField = keyof Pick<Clinic, 'name'>;
 
 export type SortableField = keyof Pick<Clinic, 'name' | 'createdAt' | 'updatedAt'>;
 

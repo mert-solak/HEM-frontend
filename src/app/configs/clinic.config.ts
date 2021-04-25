@@ -9,4 +9,5 @@ export const clinicConfig = {
   showableFields,
   editableFields,
   sortableFields,
+  searchDelayMilisecond: 500,
 };

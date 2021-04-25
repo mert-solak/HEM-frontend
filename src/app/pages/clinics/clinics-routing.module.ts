@@ -11,13 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':clinicId',
-    children: [
-      { path: '', component: ClinicComponent },
-      {
-        path: 'equipments',
-        loadChildren: () => import(`@pages/equipments/equipments.module`).then((m) => m.EquipmentsModule),
-      },
-    ],
+    component: ClinicComponent,
   },
 ];
 
