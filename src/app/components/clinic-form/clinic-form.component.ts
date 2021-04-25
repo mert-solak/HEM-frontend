@@ -1,12 +1,19 @@
 import { Observable } from 'rxjs';
-import { isDefined } from '@angular/compiler/src/util';
+import { isDefined } from 'class-validator';
 
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { MatDialog } from '@angular/material';
 
 import { Clinic } from '@interfaces/clinic.interface';
+
 import { ClinicService } from '@services/clinic.service';
+
 import { filterObjectWithFilter } from '@helpers/object.helper';
+import { getErrorFieldName } from '@helpers/error.helper';
+
 import { clinicConfig } from '@configs/clinic.config';
 
 @Component({
@@ -17,9 +24,10 @@ import { clinicConfig } from '@configs/clinic.config';
 export class ClinicFormComponent implements OnInit {
   @Input() clinic: Observable<Clinic>;
   id: number;
+  getErrorFieldName = getErrorFieldName;
   clinicForm: FormGroup;
 
-  constructor(private _clinicService: ClinicService) {}
+  constructor(private _clinicService: ClinicService, private _router: Router, private _dialog: MatDialog) {}
 
   ngOnInit() {
     this.clinicForm = new FormGroup({
@@ -38,14 +46,20 @@ export class ClinicFormComponent implements OnInit {
   }
 
   onSubmitClinicForm() {
+    if (this.clinicForm.invalid) {
+      return;
+    }
+
     if (isDefined(this.id)) {
       this._clinicService.editClinic({ ...this.clinicForm.value, id: this.id });
     } else {
       this._clinicService.addClinic({ ...this.clinicForm.value });
     }
+    this._dialog.closeAll();
   }
 
   onClickDeleteButton() {
     this._clinicService.deleteClinic({ id: this.id });
+    this._router.navigate(['/clinics']);
   }
 }

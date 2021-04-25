@@ -5,10 +5,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DefaultLayoutComponent } from '@layouts/default-layout/default-layout.component';
 import { DefaultLayoutRoutingModule } from '@layouts/default-layout/default-layout-routing.module';
+
 import { HeaderComponent } from '@components/header/header.component';
 import { ProgressSpinnerComponent } from '@components/progress-spinner/progress-spinner.component';
-import { SharedModule } from '@shared/shared.module';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
+
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [DefaultLayoutComponent, HeaderComponent, SidebarComponent, ProgressSpinnerComponent],

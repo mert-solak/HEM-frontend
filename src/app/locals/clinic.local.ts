@@ -1,6 +1,10 @@
-import { SortableField } from '@interfaces/clinic.interface';
+import { SortableField, ShowableField } from '@interfaces/clinic.interface';
 
 export const sortableFields: Record<SortableField, string> = {
-  name: 'İsime göre',
-  createdAt: 'Tarihe göre',
+  name: 'İsim',
+  createdAt: 'Tarih',
+};
+
+export const showableFields: Record<ShowableField, string> = {
+  name: 'İsim',
 };

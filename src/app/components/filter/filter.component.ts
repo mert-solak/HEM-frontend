@@ -6,7 +6,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
-  @Input() sortableFields: Record<string, string>;
+  @Input() sortableFieldsTexts: Record<string, string>;
   @Output() onSortByChange = new EventEmitter<string>();
 
   constructor() {}

@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Equipment } from '@interfaces/equipment.interface';
-import { EquipmentService } from '@services/equipment.service';
 import { Observable } from 'rxjs';
+
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
+import { Equipment } from '@interfaces/equipment.interface';
+
+import { EquipmentService } from '@services/equipment.service';
 
 @Component({
   selector: 'app-equipment',

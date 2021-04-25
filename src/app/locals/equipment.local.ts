@@ -1,10 +1,19 @@
-import { SortableField } from '@interfaces/equipment.interface';
+import { ShowableField, SortableField } from '@interfaces/equipment.interface';
 
 export const sortableFields: Record<SortableField, string> = {
-  name: 'İsime göre',
-  createdAt: 'Tarihe göre',
-  price: 'Fiyata göre',
-  quantity: 'Sayıya göre',
-  usageRatio: 'Kullanıma göre',
-  receiptDate: 'Temin tarihine göre',
+  name: 'İsim',
+  createdAt: 'Tarih',
+  price: 'Fiyat',
+  quantity: 'Sayı',
+  usageRatio: 'Kullanım',
+  receiptDate: 'Temin tarihi',
+};
+
+export const showableFields: Record<ShowableField, string> = {
+  name: 'İsim',
+  price: 'Fiyat',
+  quantity: 'Sayı',
+  usageRatio: 'Kullanım %',
+  receiptDate: 'Temin tarihi',
+  clinic: 'Klinik',
 };

@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import {
   ClinicAddInput,
@@ -15,13 +15,7 @@ import {
   ClinicLookupInput,
   ClinicLookupResult,
 } from '@interfaces/clinic.interface';
-import { HttpRequestExtra } from '@interfaces/http.interface';
-import { ServerErrorTypesEnum } from '@enums/error.enum';
-import { errorMessages } from '@locals/error.local';
-import { inputToParamsConverter } from '@helpers/http.helper';
-import { urlConfig } from '@configs/url.config';
 import {
-  EquipmentLookupInput,
   EquipmentAddInput,
   EquipmentAddResult,
   EquipmentDeleteInput,
@@ -30,8 +24,18 @@ import {
   EquipmentEditResult,
   EquipmentGetInput,
   EquipmentGetResult,
+  EquipmentLookupInput,
   EquipmentLookupResult,
 } from '@interfaces/equipment.interface';
+import { HttpRequestExtra } from '@interfaces/http.interface';
+
+import { ServerErrorTypesEnum } from '@enums/error.enum';
+
+import { errorMessages } from '@locals/error.local';
+
+import { inputToParamsConverter } from '@helpers/http.helper';
+
+import { urlConfig } from '@configs/url.config';
 
 @Injectable({
   providedIn: 'root',
@@ -53,7 +57,8 @@ export class HttpService {
   };
 
   readonly setHttpErrorMessage = (input: number) => {
-    this._httpErrorMessage.next(errorMessages[ServerErrorTypesEnum[input]]);
+    const message = errorMessages[ServerErrorTypesEnum[input]] || errorMessages.UNHANDLED_ERROR;
+    this._httpErrorMessage.next(message);
   };
 
   readonly setHttpSuccessMessage = (message: string) => {

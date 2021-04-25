@@ -1,16 +1,24 @@
 <div>
+  <div class="add-button-wrapper">
+    <button mat-flat-button color="primary" (click)="onClickAddButton()">Ekle</button>
+  </div>
+
   <div class="header">
-    <button mat-stroked-button color="primary" (click)="onClickAddButton()">Ekle</button>
     <form>
       <mat-form-field>
         <input type="text" placeholder="Arama" matInput [formControl]="searchFormControl" />
       </mat-form-field>
     </form>
-    <app-filter [sortableFields]="sortableFields" (onSortByChange)="onSortByChange($event)"></app-filter>
+    <app-filter [sortableFieldsTexts]="sortableFieldsTexts" (onSortByChange)="onSortByChange($event)"></app-filter>
   </div>
-  <app-list [data]="(_equipmentService.equipments | async).rows" [showableFields]="showableFields"></app-list>
+  <app-list
+    [data]="(_equipmentService.equipments | async).rows"
+    [showableFields]="showableFields"
+    [showableFieldsTexts]="showableFieldsTexts"
+    [render]="render"
+  ></app-list>
   <mat-paginator
-    [length]="(_equipmentService.equipments | async).rows.length"
+    [length]="(_equipmentService.equipments | async).count"
     [pageSize]="pageSize"
     (page)="onChangePage($event)"
   >

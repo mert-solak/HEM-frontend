@@ -1,18 +1,21 @@
 import { BehaviorSubject, Observable } from 'rxjs';
+import { isDefined } from 'class-validator';
 
 import { Injectable } from '@angular/core';
-import { isDefined } from '@angular/compiler/src/util';
 
 import {
   EquipmentAddInput,
-  EquipmentLookupResult,
-  EquipmentGetInput,
-  EquipmentEditInput,
   EquipmentDeleteInput,
+  EquipmentEditInput,
+  EquipmentGetInput,
   EquipmentLookupInput,
+  EquipmentLookupResult,
 } from '@interfaces/equipment.interface';
+
 import { HttpService } from '@services/http.service';
+
 import { successMessages } from '@locals/success.local';
+
 import { equipmentConfig } from '@configs/equipment.config';
 
 @Injectable({

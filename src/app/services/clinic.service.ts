@@ -1,18 +1,21 @@
 import { BehaviorSubject, Observable } from 'rxjs';
+import { isDefined } from 'class-validator';
 
 import { Injectable } from '@angular/core';
-import { isDefined } from '@angular/compiler/src/util';
 
 import {
-  ClinicLookupResult,
-  ClinicLookupInput,
-  ClinicGetInput,
-  ClinicEditInput,
-  ClinicDeleteInput,
   ClinicAddInput,
+  ClinicDeleteInput,
+  ClinicEditInput,
+  ClinicGetInput,
+  ClinicLookupInput,
+  ClinicLookupResult,
 } from '@interfaces/clinic.interface';
+
 import { HttpService } from '@services/http.service';
+
 import { successMessages } from '@locals/success.local';
+
 import { clinicConfig } from '@configs/clinic.config';
 
 @Injectable({

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="filter" *ngFor="let key of getKeys(sortableFields)" (click)="onClickFilter(key)">
-    <p>{{ sortableFields[key] }}</p>
+  <div class="filter" *ngFor="let key of getKeys(sortableFieldsTexts)" (click)="onClickFilter(key)">
+    <p>{{ sortableFieldsTexts[key] }}</p>
   </div>
 </div>

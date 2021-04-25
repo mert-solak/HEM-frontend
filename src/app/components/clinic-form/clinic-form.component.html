@@ -1,9 +1,10 @@
 <div class="container">
+  <h2 class="title">Klinik Formu</h2>
   <form class="form" [formGroup]="clinicForm" (ngSubmit)="onSubmitClinicForm()">
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>İsim</mat-label>
       <input matInput formControlName="name" />
-      <mat-error>error</mat-error>
+      <mat-error *ngIf="clinicForm.get('name').invalid">{{ getErrorFieldName(clinicForm.get('name')) }}</mat-error>
     </mat-form-field>
 
     <div class="form-buttons">

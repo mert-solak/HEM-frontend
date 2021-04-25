@@ -1,5 +1,9 @@
+.add-button-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .header {
-  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;

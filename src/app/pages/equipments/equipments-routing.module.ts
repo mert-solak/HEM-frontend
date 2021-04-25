@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EquipmentsComponent } from '@pages/equipments/equipments.component';
 import { EquipmentComponent } from '@pages/equipments/equipment/equipment.component';
+import { EquipmentsComponent } from '@pages/equipments/equipments.component';
 
 const routes: Routes = [
   {

@@ -1,8 +1,10 @@
+import { isDefined } from 'class-validator';
+
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { isDefined } from '@angular/compiler/src/util';
 
 import { HttpService } from '@services/http.service';
+
 import { snackbarConfig } from '@configs/snackbar.config';
 
 @Component({

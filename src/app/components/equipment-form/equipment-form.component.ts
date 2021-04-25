@@ -1,16 +1,22 @@
-import { isDefined } from '@angular/compiler/src/util';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { equipmentConfig } from '@configs/equipment.config';
-import { filterObjectWithFilter } from '@helpers/object.helper';
-import { Equipment } from '@interfaces/equipment.interface';
-import { EquipmentService } from '@services/equipment.service';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
+import { isDefined, minLength } from 'class-validator';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { MatDialog } from '@angular/material';
+
+import { equipmentConfig } from '@configs/equipment.config';
+
+import { Equipment } from '@interfaces/equipment.interface';
+
+import { filterObjectWithFilter } from '@helpers/object.helper';
 import { getErrorFieldName } from '@helpers/error.helper';
+
 import { ClinicService } from '@services/clinic.service';
-import { Clinic } from '@interfaces/clinic.interface';
-import { minLength } from 'class-validator';
+import { EquipmentService } from '@services/equipment.service';
 
 @Component({
   selector: 'app-equipment-form',
@@ -24,8 +30,14 @@ export class EquipmentFormComponent implements OnInit {
   getErrorFieldName = getErrorFieldName;
   clinicTimeout: any;
   clinicId: number;
+  render = equipmentConfig.render;
 
-  constructor(private _equipmentService: EquipmentService, private _clinicService: ClinicService) {}
+  constructor(
+    private _equipmentService: EquipmentService,
+    private _clinicService: ClinicService,
+    private _router: Router,
+    private _dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
     this.equipmentForm = new FormGroup({
@@ -84,15 +96,15 @@ export class EquipmentFormComponent implements OnInit {
     } else {
       this._equipmentService.addEquipment({ ...input });
     }
+    this._dialog.closeAll();
   }
 
   onClickDeleteButton() {
     this._equipmentService.deleteEquipment({ id: this.id });
+    this._router.navigate(['/equipments']);
   }
 
   onChangeReceiptDate(date: Date) {
     this.equipmentForm.get('receiptDate').setValue(moment(date).toISOString());
   }
-
-  displayClinic = (clinic: Clinic) => (clinic ? clinic.name : '');
 }

@@ -1,3 +1,6 @@
-<div>
-  <app-card *ngFor="let item of data" [item]="item" [showableFields]="showableFields"></app-card>
+<div class="container">
+  <header class="header">
+    <p class="header-item" *ngFor="let field of showableFields">{{ showableFieldsTexts[field] }}</p>
+  </header>
+  <app-card *ngFor="let item of data" [item]="item" [showableFields]="showableFields" [render]="render"></app-card>
 </div>

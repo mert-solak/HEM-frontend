@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Clinic } from '@interfaces/clinic.interface';
+
 import { ClinicService } from '@services/clinic.service';
 
 @Component({

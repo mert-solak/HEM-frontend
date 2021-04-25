@@ -1,0 +1,18 @@
+@import '_variables';
+
+.container {
+  padding: 24px;
+  background-color: $color-darker-background;
+}
+
+.header {
+  padding: 0px 24px 24px 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-item {
+  font-weight: bold;
+  font-size: 13px;
+  color: $color-light-text;
+}

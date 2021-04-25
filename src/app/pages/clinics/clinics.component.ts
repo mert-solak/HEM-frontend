@@ -1,14 +1,19 @@
+import { minLength, isDefined } from 'class-validator';
+
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, PageEvent } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
+import { MatDialog, PageEvent } from '@angular/material';
+
 import { ClinicFormComponent } from '@components/clinic-form/clinic-form.component';
+
 import { ClinicService } from '@services/clinic.service';
+
 import { SortableField } from '@interfaces/clinic.interface';
+
 import { clinicConfig } from '@configs/clinic.config';
-import { sortableFields } from '@locals/clinic.local';
-import { isDefined } from '@angular/compiler/src/util';
-import { minLength } from 'class-validator';
+
+import { showableFields, sortableFields } from '@locals/clinic.local';
 
 @Component({
   selector: 'app-clinics',
@@ -18,9 +23,11 @@ import { minLength } from 'class-validator';
 export class ClinicsComponent implements OnInit {
   currentPage = 0;
   pageSize = clinicConfig.pageSize;
+  render = clinicConfig.render;
 
   showableFields = clinicConfig.showableFields;
-  sortableFields = sortableFields;
+  sortableFieldsTexts = sortableFields;
+  showableFieldsTexts = showableFields;
 
   searchFormControl = new FormControl();
   searchTimeout: any;

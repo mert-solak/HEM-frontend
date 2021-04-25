@@ -1,13 +1,19 @@
-import { isDefined } from '@angular/compiler/src/util';
+import { isDefined, minLength } from 'class-validator';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
 import { MatDialog, PageEvent } from '@angular/material';
+
 import { EquipmentFormComponent } from '@components/equipment-form/equipment-form.component';
+
 import { equipmentConfig } from '@configs/equipment.config';
+
 import { SortableField } from '@interfaces/equipment.interface';
-import { sortableFields } from '@locals/equipment.local';
+
+import { showableFields, sortableFields } from '@locals/equipment.local';
+
 import { EquipmentService } from '@services/equipment.service';
-import { minLength } from 'class-validator';
 
 @Component({
   selector: 'app-equipments',
@@ -17,9 +23,11 @@ import { minLength } from 'class-validator';
 export class EquipmentsComponent implements OnInit {
   currentPage = 0;
   pageSize = equipmentConfig.pageSize;
+  render = equipmentConfig.render;
 
   showableFields = equipmentConfig.showableFields;
-  sortableFields = sortableFields;
+  sortableFieldsTexts = sortableFields;
+  showableFieldsTexts = showableFields;
 
   searchFormControl = new FormControl();
   searchTimeout: any;

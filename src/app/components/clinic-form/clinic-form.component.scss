@@ -1,7 +1,13 @@
 .container {
   height: 100%;
+  min-width: calc(80vw - 48px);
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-bottom: 48px;
 }
 
 .form {

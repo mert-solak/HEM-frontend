@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="title">Ekipman Formu</h2>
   <form class="form" [formGroup]="equipmentForm" (ngSubmit)="onSubmitEquipmentForm()">
     <mat-form-field class="form-field" appearance="outline">
       <mat-label>İsim</mat-label>
@@ -54,7 +55,7 @@
       <mat-error *ngIf="equipmentForm.get('clinic').invalid">{{
         getErrorFieldName(equipmentForm.get('clinic'))
       }}</mat-error>
-      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayClinic">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="render.clinic">
         <mat-option *ngFor="let clinic of (_clinicService.clinics | async)?.rows" [value]="clinic">
           {{ clinic.name }}
         </mat-option>
