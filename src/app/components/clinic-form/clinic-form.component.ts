@@ -55,6 +55,7 @@ export class ClinicFormComponent implements OnInit {
     } else {
       this._clinicService.addClinic({ ...this.clinicForm.value });
     }
+    this._router.navigate(['/clinics']);
     this._dialog.closeAll();
   }
 

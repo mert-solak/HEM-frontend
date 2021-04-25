@@ -96,6 +96,7 @@ export class EquipmentFormComponent implements OnInit {
     } else {
       this._equipmentService.addEquipment({ ...input });
     }
+    this._router.navigate(['/equipments']);
     this._dialog.closeAll();
   }
 

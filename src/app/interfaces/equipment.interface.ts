@@ -15,7 +15,7 @@ export interface Equipment {
 
 export type SortOrder = 'ASC' | 'DESC';
 
-export type SearchableField = keyof Pick<Equipment, 'name' | 'price' | 'quantity' | 'usageRatio' | 'receiptDate'>;
+export type SearchableField = keyof Pick<Equipment, 'name'>;
 
 export type SortableField = keyof Pick<
   Equipment,
